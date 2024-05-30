@@ -31,7 +31,7 @@
       </section>
       <section id="controls">
         <button @click="attachMonster">ATTACK</button>
-        <button>SPECIAL ATTACK</button>
+        <button @click="speacialAttachMonster" :disabled="myUseSpiaclAttach">SPECIAL ATTACK</button>
         <button>HEAL</button>
         <button>SURRENDER</button>
       </section>
