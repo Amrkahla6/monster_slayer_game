@@ -30,23 +30,37 @@ const app = Vue.createApp({
             this.currentRound ++;
 
             //Random value between 5 and 12
-            myAttachVlue = getRandomValue(5,12);
-            this.monsterHealth  -= myAttachVlue;
+            myAttachValue = getRandomValue(5,12);
+            this.monsterHealth  -= myAttachValue;
             this.attachPlayer();
         },
         attachPlayer()
         {
             //Random value between 15 and 8
-            myAttachVlue = getRandomValue(8,15);
-            this.playerHealth  -= myAttachVlue;
+            myAttachValue = getRandomValue(8,15);
+            this.playerHealth  -= myAttachValue;
         },
         speacialAttachMonster()
         {
             this.currentRound ++;
 
-            myAttachVlue = getRandomValue(10,25);
-            this.monsterHealth  -= myAttachVlue;
+            myAttachValue = getRandomValue(10,25);
+            this.monsterHealth  -= myAttachValue;
             this.spicalAttch -- ;
+            this.attachPlayer();
+        },
+        healPlayer()
+        {
+            this.currentRound ++;
+
+            myHealValue = getRandomValue(8,15);
+            
+            if(this.playerHealth + myHealValue > 100){
+                this.playerHealth = 100; 
+            }else{
+                this.playerHealth  += myHealValue;
+            }
+            
             this.attachPlayer();
         }
     },
