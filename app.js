@@ -1,7 +1,7 @@
 
 function getRandomValue(min,max)
 {
-    return math.floor(Math.random() * (max - min) + min);
+    return Math.floor(Math.random() * (max - min) + min);
 }
 
 const app = Vue.createApp({
@@ -9,6 +9,15 @@ const app = Vue.createApp({
         return {
             playerHealth  : 100,
             monsterHealth : 100,
+        }
+    },computed:{
+        monsterBarStyles()
+        {
+            return {width: this.monsterHealth + '%'};
+        },
+        playerBarStyles()
+        {
+            return {width: this.playerHealth + '%'};
         }
     },methods: {
         attachMonster()
@@ -22,7 +31,7 @@ const app = Vue.createApp({
         {
             //Random value between 15 and 8
             myAttachVlue = getRandomValue(8,15);
-            this.playerHealth  -= playerHealth;
+            this.playerHealth  -= myAttachVlue;
         }
     },
 });
